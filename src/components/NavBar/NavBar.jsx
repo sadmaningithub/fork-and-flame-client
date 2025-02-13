@@ -4,11 +4,11 @@ import { Link } from "react-router";
 const NavBar = () => {
 
     const navOptions = <>
-        <li><Link> Home </Link></li>
-        <li><Link> Menu </Link></li>
-        <li><Link> Shop </Link></li>
-        <li><Link> About Us </Link></li>
-        <li><Link> Contact </Link></li>
+        <li><Link to='/'> Home </Link></li>
+        <li><Link to='/menu'> Menu </Link></li>
+        <li><Link to='/shop'> Shop </Link></li>
+        <li><Link to='/about'> About Us </Link></li>
+        <li><Link to='/contact'> Contact </Link></li>
     </>
 
     return (
@@ -25,7 +25,7 @@ const NavBar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Fork & Flame</a>
+                    <a className="btn btn-ghost text-xl font-bold">Fork & Flame</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -33,7 +33,8 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <Link to='/signup'> <button className="btn mr-2">Sign up</button> </Link>
+                    <Link to='/login'> <button className="btn">Login</button> </Link>
                 </div>
             </div>
         </div>
