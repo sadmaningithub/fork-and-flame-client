@@ -1,10 +1,19 @@
+import { Route, Routes } from "react-router"
+import Root from "./layout/Root/Root"
+import Home from "./pages/Home/Home"
+import Menu from "./pages/Menu/Menu"
 
 
 function App() {
 
   return (
     <>
-      <h1 className="text-xl font-bold">Fork and Flame</h1>
+      <Routes>
+        <Route path="/" element={<Root/>}> 
+          <Route index path="/" element={<Home/>} />
+          <Route path="/menu" element={<Menu/>} />
+        </Route>
+      </Routes>
     </>
   )
 }
