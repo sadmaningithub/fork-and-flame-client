@@ -1,6 +1,5 @@
 import { Link } from 'react-router';
 import cafeImg from '../../assets/img/cafe.jpg'
-import SectionHeading from '../../components/SectionHeading/SectionHeading';
 
 const About = () => {
     return (
@@ -12,9 +11,10 @@ const About = () => {
                     <img className='rounded-xl' src={cafeImg} alt="" />
                 </div>
 
-                <div className='space-y-4'>
-
-                    <SectionHeading heading={'About Fork & Flame'} subHeading={'Where Fire Meets Flavor'} />
+                <div className='space-y-4'>  
+                    <h3 className='text-xl font-bold'>About Fork & Flame</h3>
+                    
+                    <h1 className='text-5xl font-bold'>Where Fire Meets Flavor</h1>
 
                     <p>
                         At Fork & Flame, we believe that great food starts with fire. Our passion for flame-grilled perfection drives us to craft dishes that ignite your senses and leave a lasting impression.

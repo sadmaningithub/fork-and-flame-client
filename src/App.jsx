@@ -6,6 +6,7 @@ import Shop from "./pages/Shop/Shop"
 import Contact from "./pages/Contact/Contact"
 import Registration from "./pages/Registration/Registration"
 import Login from "./pages/Login/Login"
+import AddDish from "./pages/AddDish/AddDish"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contact" element={<Contact/>} />
           <Route path="/signup" element={<Registration/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/addDish" element={<AddDish/>} />
         </Route>
       </Routes>
     </>
