@@ -22,7 +22,7 @@ const Banner = () => {
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false,
-                  }}
+                }}
                 modules={[EffectFade, Autoplay]}
             >
                 <SwiperSlide>
@@ -32,7 +32,7 @@ const Banner = () => {
                     <BannerContent bg={img2} title={'Flavors That Ignite'} text={'At Fork & Flame, we craft dishes that excite your taste buds. Get ready for bold flavors, fresh ingredients, and unforgettable meals.'}></BannerContent>
                 </SwiperSlide>
                 <SwiperSlide>
-                <BannerContent bg={img3} title={'A Feast by the Fire'} text={'Gather around and indulge in sizzling plates, warm ambiance, and handcrafted perfection. Because great food starts with fire.'}></BannerContent>
+                    <BannerContent bg={img3} title={'A Feast by the Fire'} text={'Gather around and indulge in sizzling plates, warm ambiance, and handcrafted perfection. Because great food starts with fire.'}></BannerContent>
                 </SwiperSlide>
             </Swiper>
         </div>

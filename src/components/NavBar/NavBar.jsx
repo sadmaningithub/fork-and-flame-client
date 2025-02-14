@@ -1,36 +1,18 @@
-import { useEffect, useState } from "react";
+
 import { Link } from "react-router";
 
 
 const NavBar = () => {
 
-    const [theme, setTheme] = useState('light')
-
     const navOptions = <>
         <li><Link to='/'> Home </Link></li>
         <li><Link to='/menu'> Menu </Link></li>
         <li><Link to='/shop'> Shop </Link></li>
-        <li><Link to='/about'> About Us </Link></li>
         <li><Link to='/contact'> Contact </Link></li>
     </>
 
-    const handleTheme = () => { 
-        setTheme(theme === 'light' ? 'dark' : 'light')
-        localStorage.setItem()
-        // console.log(theme);
-    }
-
-    useEffect(() => {
-        if (theme === 'light') {
-            document.querySelector('html').setAttribute('data-theme', theme)
-        }
-        else {
-            document.querySelector('html').setAttribute('data-theme', theme)
-        }
-    }, [theme])
-
     return (
-        <div>
+        <div className="sticky top-0 z-10">
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -51,12 +33,10 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <select onChange={handleTheme} defaultValue="light" className="select select-ghost">
-                        <option value={'light'}>Light</option>
-                        <option value={'dark'}>Dark</option>
-                    </select>
+                    
                     <Link to='/signup'> <button className="btn mr-2">Sign up</button> </Link>
                     <Link to='/login'> <button className="btn">Login</button> </Link>
+                    
                 </div>
             </div>
         </div>
