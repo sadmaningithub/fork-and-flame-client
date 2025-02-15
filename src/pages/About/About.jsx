@@ -12,7 +12,7 @@ const About = () => {
                 </div>
 
                 <div className='space-y-4'>  
-                    <h3 className='text-xl font-bold'>About Fork & Flame</h3>
+                    <h3 className='text-xl font-bold'>About Us</h3>
                     
                     <h1 className='text-5xl font-bold'>Where Fire Meets Flavor</h1>
 
