@@ -22,7 +22,7 @@ const FoodCard = ({ food }) => {
                     <p>{description}</p>
                     <p>{rating}</p>
                     <div className="card-actions justify-center">
-                        <Link><button className="btn btn-primary">See More</button> </Link>
+                        <Link to={`/menu/${_id}`}><button className="btn">See More</button> </Link>
                     </div>
                 </div>
             </div>
