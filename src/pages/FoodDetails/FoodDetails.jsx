@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
+import useAuth from "../../hooks/useAuth";
 
 
 const FoodDetails = () => {
@@ -8,6 +9,9 @@ const FoodDetails = () => {
     const [foodDetails, setFoodDetails] = useState({})
     const params = useParams();
     // console.log(params.id);
+    const {user} = useAuth();
+
+    console.log(user);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/dishes/${params.id}`)
@@ -21,6 +25,10 @@ const FoodDetails = () => {
                 console.log(error.message);
             })
     }, [params.id])
+
+    const handleAddToCart=(food)=>{
+        console.log(food);
+    }
 
     
 
@@ -38,7 +46,7 @@ const FoodDetails = () => {
                     <h4 className="text-xl font-medium">{foodDetails.category}</h4>
                     <p className="text-sm font-normal">{foodDetails.description}</p>
                     <div className="">
-                        <Link> <button className="btn ">Order Now</button> </Link>
+                        <button onClick={()=> handleAddToCart(foodDetails)} className="btn ">Order Now</button> 
                     </div>
                 </div>
             </div>
