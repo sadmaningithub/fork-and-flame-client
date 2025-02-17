@@ -8,6 +8,7 @@ import Registration from "./pages/Registration/Registration"
 import Login from "./pages/Login/Login"
 import AddDish from "./pages/AddDish/AddDish"
 import FoodDetails from "./pages/FoodDetails/FoodDetails"
+import Cart from "./pages/Cart/Cart"
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/signup" element={<Registration/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/addDish" element={<AddDish/>} />
+          <Route path="/cart" element={<Cart/>} />
         </Route>
       </Routes>
     </>

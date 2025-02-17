@@ -1,4 +1,5 @@
 
+import { IoFastFoodOutline } from "react-icons/io5";
 import { Link } from "react-router";
 
 
@@ -10,6 +11,7 @@ const NavBar = () => {
         <li><Link to='/shop'> Shop </Link></li>
         <li><Link to='/contact'> Contact </Link></li>
         <li><Link to='/addDish'> Add Dish </Link></li>
+        <li><Link to='/cart'> <IoFastFoodOutline />Cart</Link></li>
     </>
 
     return (

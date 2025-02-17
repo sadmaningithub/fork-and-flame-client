@@ -20,7 +20,9 @@ const FoodDetails = () => {
                 // handle error
                 console.log(error.message);
             })
-    }, [])
+    }, [params.id])
+
+    
 
     return (
         <div className="max-w-7xl mx-auto my-10">

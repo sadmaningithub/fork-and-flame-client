@@ -1,12 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FoodCard from "../FoodCard/FoodCard";
 
 
 const Menu = () => {
     const [data, setData] = useState([]);
 
-    useState(() => {
+    useEffect(() => {
         axios.get('http://localhost:5000/dishes')
             .then(response => {
                 // handle success
