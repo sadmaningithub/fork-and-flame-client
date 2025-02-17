@@ -7,7 +7,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const NavBar = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
     const navOptions = <>
         <li><Link to='/'> Home </Link></li>
@@ -17,6 +17,17 @@ const NavBar = () => {
         <li><Link to='/addDish'> Add Dish </Link></li>
         <li><Link to='/cart'> <IoFastFoodOutline />Cart</Link></li>
     </>
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                // Sign-out successful.
+            }).catch((error) => {
+                // An error happened.
+                console.log(error);
+            });
+
+    }
 
     return (
         <div className="sticky top-0 z-10">
@@ -41,7 +52,7 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <Link to=''> <button className="btn mr-2">Logout</button> </Link> : <> <Link to='/signup'> <button className="btn mr-2">Sign up</button> </Link>
+                        user ? <button onClick={handleLogOut} className="btn mr-2">Logout</button> : <> <Link to='/signup'> <button className="btn mr-2">Sign up</button> </Link>
                             <Link to='/login'> <button className="btn">Login</button> </Link> </>
                     }
 
