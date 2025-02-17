@@ -1,6 +1,37 @@
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Registration = () => {
+
+    const { createUser } = useContext(AuthContext);
+
+    const handleSignUp = e => {
+        e.preventDefault();
+        // console.log(e.target);
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const userInfo = {name, email, password}
+        console.log(userInfo);
+
+        createUser(email, password)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log(user);
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+                // ..
+            });
+
+    }
+
     return (
         <div>
             <div className="hero bg-base-200 min-h-screen">
@@ -14,14 +45,17 @@ const Registration = () => {
                     </div>
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                         <div className="card-body">
-                            <fieldset className="fieldset">
+                            <form onSubmit={handleSignUp} className="fieldset">
+                                <label className="fieldset-label">Name</label>
+                                <input type="text" className="input" name="name" placeholder="name" />
                                 <label className="fieldset-label">Email</label>
-                                <input type="email" className="input" placeholder="Email" />
+                                <input type="email" className="input" name="email" placeholder="Email" />
                                 <label className="fieldset-label">Password</label>
-                                <input type="password" className="input" placeholder="Password" />
+                                <input type="password" name="password" className="input" placeholder="Password" />
                                 <div><a className="link link-hover">Forgot password?</a></div>
-                                <button className="btn btn-neutral mt-4">Login</button>
-                            </fieldset>
+                                {/* <button className="btn btn-neutral mt-4">Sign up</button> */}
+                                <input type="submit" className="btn btn-neutral mt-4" value="Sign up" />
+                            </form>
                         </div>
                     </div>
                 </div>

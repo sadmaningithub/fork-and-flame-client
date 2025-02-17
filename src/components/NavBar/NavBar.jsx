@@ -1,9 +1,13 @@
 
+import { useContext } from "react";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { Link } from "react-router";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const NavBar = () => {
+
+    const { user } = useContext(AuthContext)
 
     const navOptions = <>
         <li><Link to='/'> Home </Link></li>
@@ -36,10 +40,13 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    
-                    <Link to='/signup'> <button className="btn mr-2">Sign up</button> </Link>
-                    <Link to='/login'> <button className="btn">Login</button> </Link>
-                    
+                    {
+                        user ? <Link to=''> <button className="btn mr-2">Logout</button> </Link> : <> <Link to='/signup'> <button className="btn mr-2">Sign up</button> </Link>
+                            <Link to='/login'> <button className="btn">Login</button> </Link> </>
+                    }
+
+
+
                 </div>
             </div>
         </div>
