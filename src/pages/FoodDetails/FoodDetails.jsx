@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const FoodDetails = () => {
@@ -12,10 +13,9 @@ const FoodDetails = () => {
     // console.log(params.id);
     const { user } = useAuth();
     const navigate = useNavigate();
-    const location = useLocation();
+    const axiosSecure = useAxiosSecure();
 
     // console.log(user);
-    console.log(location);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/dishes/${params.id}`)
@@ -33,12 +33,38 @@ const FoodDetails = () => {
     const handleAddToCart = (food) => {
         // console.log(food);
         if (user && user.email) {
-            console.log(food);
+            // console.log(food);
+
+            const cartItem = {
+                menuId: params.id,
+                email: user.email,
+                name: foodDetails.name,
+                image: foodDetails.image,
+                price: foodDetails.price
+            }
+
+            console.log(cartItem);
+
+            axiosSecure.post('/cart', cartItem)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.insertedId) {
+                        Swal.fire({
+                            title: `${foodDetails.name} added to the cart!`,
+                            icon: "success",
+                            confirmButtonColor: "#000000",
+                        });
+                    }
+
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
         else {
             Swal.fire({
                 title: "Please login before ordering",
-                
+
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#000000",

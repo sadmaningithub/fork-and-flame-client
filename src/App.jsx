@@ -10,6 +10,7 @@ import AddDish from "./pages/AddDish/AddDish"
 import FoodDetails from "./pages/FoodDetails/FoodDetails"
 import Cart from "./pages/Cart/Cart"
 import PrivateRoutes from "./routes/PrivateRoutes"
+import Dashboard from "./layout/Root/Dashboard"
 
 
 
@@ -21,18 +22,19 @@ function App() {
         <Route path="/" element={<Root />}>
           <Route index path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
-
-
           <Route path="/shop" element={<Shop />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<Registration />} />
           <Route path="/login" element={<Login />} />
-
           <Route path="/menu/:id" element={<PrivateRoutes> <FoodDetails /> </PrivateRoutes>} />
           <Route path="/addDish" element={<AddDish />} />
-
           <Route path="/cart" element={<Cart />} />
         </Route>
+
+        <Route path="dashboard" element={<Dashboard/>}>
+
+        </Route>
+
       </Routes>
     </>
   )

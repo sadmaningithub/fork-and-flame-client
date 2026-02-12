@@ -3,11 +3,14 @@ import { useContext } from "react";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { Link } from "react-router";
 import { AuthContext } from "../../providers/AuthProvider";
+import useCart from "../../hooks/useCart";
 
 
 const NavBar = () => {
 
     const { user, logOut } = useContext(AuthContext)
+    const [cart] = useCart();
+    // console.log(cart); 
 
     const navOptions = <>
         <li><Link to='/'> Home </Link></li>
@@ -15,7 +18,7 @@ const NavBar = () => {
         <li><Link to='/shop'> Shop </Link></li>
         <li><Link to='/contact'> Contact </Link></li>
         <li><Link to='/addDish'> Add Dish </Link></li>
-        <li><Link to='/cart'> <IoFastFoodOutline />Cart</Link></li>
+        <li><Link to='/cart'> <IoFastFoodOutline />{cart.length} </Link></li>
     </>
 
     const handleLogOut = () => {
